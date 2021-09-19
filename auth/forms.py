@@ -12,20 +12,17 @@ class UserRegForm(FlaskForm):
     password_confirm = PasswordField('Confirm Passwords', validators=[Required()])
     submit = SubmitField('Sign Up')
 
-    @classmethod
-    def validate_email(cls, data_field):
-        if cls.query.filter_by(email=data_field.data).first():
+    def validate_email(self, data_field):
+        if User.query.filter_by(email=data_field.data).first():
             raise ValidationError("The Email has already been taken!")
 
-    @classmethod
-    def validate_username(cls, data_field):
-        if cls.query.filter_by(username=data_field.data).first():
+    def validate_username(self, data_field):
+        if User.query.filter_by(username=data_field.data).first():
             raise ValidationError("The username has already been taken")
+
 
 class UserLoginForm(FlaskForm):
     username = StringField('Username', validators=[Required()])
     password = PasswordField('Password', validators=[Required()])
     remember = BooleanField('Remember Me!')
     submit = SubmitField('Login')
-
-
