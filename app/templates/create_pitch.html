@@ -1,0 +1,15 @@
+{% extends "base.html"%}
+{% block content %}
+    <div class="card">
+
+        <h5 class="card-header info-color white-text text-center py-4">
+            <strong>Create Your Pitch</strong>
+        </h5>
+
+        <!--Card content-->
+        <div class="card-body px-lg-5 pt-0">
+            {{wtf.quick_form(form)}}
+
+        </div>
+    </div>
+{% endblock %}
