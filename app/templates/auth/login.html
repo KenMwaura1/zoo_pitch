@@ -1,4 +1,5 @@
 {% extends "base.html"%}
+{% import 'bootstrap/wtf.html' as wtf %}
 
 {% block content %}
     <div class="container">
@@ -7,15 +8,15 @@
             <div class="col-md-6" id="login">
                 <h3 class="text-center"><i class="fas fa-sign-in-alt text-center"></i>&nbsp; <strong class="text-center" >Log In Here</strong></h3>
                 {% for message in get_flashed_messages() %}
-                    <div class="alert alert-danger">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <div class="alert rgba-red-strong ">
+                        <button type="button" class="btn btn-primary rounded-pill aqua-gradient close" data-dismiss="alert">&times;</button>
                         {{ message }}
                     </div>
                 {% endfor %}
                 {{wtf.quick_form(loginform)}}
-                <p> Don't have an account? <a id="sign" href="{{url_for('auth.sign-up')}}">Sign up here</a></p>
+                <p> Don't have an account? <a id="sign" class="btn rounded-pill aqua-gradient"href="{{url_for('auth.signup')}}">Sign up here</a></p>
             </div>
-            <div clas="col-md-3"> </div>
+            <div class="col-md-3"> </div>
         </div>
     </div>
 

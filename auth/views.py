@@ -24,12 +24,14 @@ def logout():
     logout_user()
     return redirect(url_for("main.index"))
 
-@auth.route('/signup', methods = ["GET","POST"])
+
+@auth.route('/signup', methods=["GET", "POST"])
 def signup():
     form = UserRegForm()
+    print(form)
     if form.validate_on_submit():
-        user = User(email = form.email.data, username = form.username.data, password = form.password.data)
+        user = User(email=form.email.data, username=form.username.data, password=form.password.data)
         user.save_user()
-        mail_message("Welcome to Pitch-World","email/welcome_user",user.email,user=user)
+        # mail_message("Welcome to Zoo-Pitch","email/welcome_user",user.email,user=user)
         return redirect(url_for('auth.login'))
-    return render_template('auth/signup.html', r_form = form)
+    return render_template('auth/sign-up.html', reg_form=form)
