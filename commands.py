@@ -8,7 +8,7 @@ mail = Mail()
 login = LoginManager()
 
 login.session_protection = 'strong'
-login.login_view = ''
+login.login_view = 'auth.login'
 
 
 photos = UploadSet('photos', IMAGES)
