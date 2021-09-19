@@ -8,8 +8,8 @@ def create_app(config_name):
     :return: app
     """
     app = Flask(__name__)
-    from .main import main
+    from .main import main as main_bp
 
-    app.register_blueprint(main)
+    app.register_blueprint(main_bp)
 
     return app
