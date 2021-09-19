@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zoo Pitch!</title>
+    {% block styles %}
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Material Design for Bootstrap -->
+    <link href="{{ url_for('static', filename='css/mdb.min.css') }}" rel="stylesheet">
+    <!-- Custom css -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    {% endblock %}
+    <link href="{{ url_for('static', filename='images/favicon.ico') }}" rel="shortcut icon">
+
+
+</head>
+<body>
+{% block nav %}
+{% include 'nav.html' %}
+{% endblock %}
+{% block content %}
+
+{% endblock %}
+{% block scripts %}
+<!-- jQuery -->
+<script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+
+<!-- Popper.js -->
+<script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+
+<!-- Bootstrap -->
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+<!-- Material Design for Bootstrap -->
+<script src="{{ url_for('static', filename='js/mdb.min.js') }}"></script>
+{% endblock %}
+
+</body>
+</html>
