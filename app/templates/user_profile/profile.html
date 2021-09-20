@@ -46,11 +46,11 @@
             <div class="col-md-5" id="user">
                 {% if current_user %}
                     <h3 class="text-center">You have {{user.pitches.count()}} Pitches</h3>
-                    {% for post in posts%}
+                    {% for pitch in pitches %}
                         <div class="pitches">
-                            <h5>Title: {{post.title}}</h5>
-                            <h6>{{post.pitch}}</h6>
-                            <p>{{post.comment.count()}} Comments</p>
+                            <h5 class="green-text">Title: {{pitch.title}}</h5>
+                            <h6 class="cyan-text">{{pitch.pitch}}</h6>
+                            <p class="teal-text">{{pitch.comment.count()}} Comments</p>
                         </div>
 
                     {%endfor%}

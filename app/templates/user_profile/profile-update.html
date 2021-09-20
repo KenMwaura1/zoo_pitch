@@ -25,9 +25,9 @@
                             <p> {{user.username| capitalize}} has no bio </p>
                         {% endif %}
                         {% if user == current_user %}
-                            <div class="profpic">
+                            <div class="profile-pic">
                                 <div id="updates">
-                                    <a href="{{url_for('main.updateprofile',name=user.username)}}">Edit Bio</a>
+                                    <a href="{{url_for('main.update_profile',name=user.username)}}">Edit Bio</a>
                                     <button class="btn btn-sm ripe-malinka-gradient " id="profile-button">update pic</button>
                                 </div>
 
