@@ -3,6 +3,8 @@ A flask application that allows users to use that one minute wisely. The users w
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
+![logo](app/static/images/Zoo-Pitch.png)
+
 This is a flask application that will help create short pitches as well have people comment on their pitches.
 
 ### User Story
