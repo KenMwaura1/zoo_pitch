@@ -29,7 +29,7 @@ Here are some user stories to help you get started:
 
 ## Showcase
 
-![screenshot of app running](app/static/images/Screenshot_121.png)
+![screenshot of app running](app/static/images/Screenshot_122.png)
 
 ## Live Site
 

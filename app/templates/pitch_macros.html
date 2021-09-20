@@ -1,23 +1,40 @@
 {% macro show(pitches) %}
     <div class="container-fluid">
-        <div class="row">
+        <div class="card-deck">
             {% if pitches %}
                 {% for pitch in pitches %}
-                    <div class="col-md-4" >
-                        <div class="thumbnail" id="carded">
-                            <h5 class="card-header">{{pitch.title}}</h5>
-                            <div class="card-body">
-                                <p>{{pitch.post}}</p>
-                                <p class="text-center"> pitch: {{pitch.pitch}}</p>
-                                <footer class="blockquote-footer text-center" > Posted by: {{pitch.user.username}}</footer>
-                                <div><span class="foot" >{{pitch.comment.count()}} Comments</span>
-                                    <span class="foot badge badge-pill badge-success" > <a class="white-text" href="{{url_for('main.like',pitch_id = pitch.id)}}"><i class="fa fa-thumbs-up" style="font-size:18px"></i></a> {{pitch.upvote.count()}}</span>
+                    <div class="mb-4">
+                        <div class="card card-cascade wider">
 
-                                    <span class="foot badge badge-pill badge-danger"> <a class=" white-text" href="{{url_for('main.dislike',pitch_id = pitch.id)}}"> <i class="fa fa-thumbs-down" style="font-size:18px"></i> {{pitch.downvotes.count()}}</a></span></div>
+                            <!-- Card image -->
+                            <div class="view view-cascade gradient-card-header aqua-gradient-rgba">
 
-                                <a href="{{url_for('main.comment',pitch_id = pitch.id)}}" class="btn btn-info btn-sm"> Comment</a>
+                                <!-- Title -->
+                                <h2 class="card-header-title mb-3 h3">{{ pitch.title }}</h2>
+                                <!-- Text -->
+                                <p class="mb-0"><i class="fa fa-calendar mr-2"></i>{{ pitch.time }}</p>
+
                             </div>
+
+                            <!-- Card content -->
+                            <div class="card-body card-body-cascade text-center">
+
+                                <!-- Text -->
+                                <p class="card-text"> {{ pitch.pitch }}</p>
+                                <footer class="blockquote-footer text-left" > Posted by: {{pitch.user.username}}</footer>
+                                <hr class="black">
+
+                                <button class="btn btn-light-blue rounded-pill btn-sm tempting-azure-gradient black-text" >{{pitch.comment.count()}} Comments</button>
+                                <br>
+                                <span class="foot badge badge-pill badge-success" > <a class="white-text" href="{{url_for('main.like',pitch_id = pitch.id)}}"><i class="fa fa-thumbs-up" style="font-size:18px"></i></a> {{pitch.upvote.count()}}</span>
+                                <span class="foot badge badge-pill badge-danger"> <a class=" white-text" href="{{url_for('main.dislike',pitch_id = pitch.id)}}"> <i class="fa fa-thumbs-down" style="font-size:18px"></i> {{pitch.downvotes.count()}}</a></span>
+                                <a href="{{url_for('main.comment',pitch_id = pitch.id)}}" class="btn rgba-amber-strong btn-sm rounded-pill text-left"> Comment</a>
+                            </div>
+
+                            <!-- Card content -->
+
                         </div>
+                        <!-- Card -->
                     </div>
 
                 {% endfor %}

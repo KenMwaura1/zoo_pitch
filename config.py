@@ -35,7 +35,15 @@ class ProdConfig(Config):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
+class TestConfig(Config):
+    """
+    testing sub class
+    """
+    SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_SQLALCHEMY_DATABASE_URI')
+
+
 config_options = {
     'development': DevConfig,
-    'production': ProdConfig
+    'production': ProdConfig,
+    'test': TestConfig
 }
