@@ -15,18 +15,40 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/New-Pitch">New Pitch</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Profile</a>
-                </li>
+                {% if current_user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('main.new_pitch')}}">New Pitch</a>
+                    </li>
+                {% endif %}
             </ul>
-            <form class="form-inline">
-                <div class="md-form my-0">
-                    <button class="btn rounded-pill my-2 my-sm-0 sunny-morning-gradient" >Login</button>
-                </div>
-            </form>
+            <ul class="navbar-nav ml-auto">
+                {% if current_user.is_authenticated %}
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" style= 'margin-right:30px' data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user"></i>&nbsp;<strong>{{current_user.username}}</strong> </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+                            <a class="dropdown-item" href="{{url_for('main.profile',name=current_user.username)}}"><i class="far fa-user"></i>&nbsp; My account</a>
+                            <a class="dropdown-item" href="{{url_for('auth.logout')}}"><i class="fas fa-sign-out-alt"></i>&nbsp; Log out</a>
+                        </div>
+                    </li>
+                {% else %}
+                    <li class="nav-item ">
+                        <div class="container">
+                            <a  class="nav-link btn rounded-pill sunny-morning-gradient" href="{{url_for('auth.login')}}" style='padding-right:30px'><i class="fas fa-sign-in-alt"></i>&nbsp; <strong class="text-center">Log In</strong></a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <div class="container">
+                            <a style= 'padding-right:30px' class="nav-link btn rounded-pill my-4 my-sm-0 deep-blue-gradient" href="{{url_for('auth.signup')}}"><i class="fas fa-user-plus"></i></i>&nbsp; <strong class="text-center">Sign Up</strong></a>
+                        </div>
+                    </li>
+                {%endif%}
+
+            </ul>
+
         </div>
     </div>
 </nav>
