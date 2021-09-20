@@ -2,10 +2,10 @@
 {% import "pitch_macros.html" as macro %}
 
 {% block content %}
-    <h2 class="h1"> Home</h2>
+    <h2 class="h3"> </h2>
     <div  class="container">
         <h2 class="text-center" id="posts">All Pitches</h2>
-        <ul class="nav nav-pills nav-justified nav-fill " role="tablist">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item" >
                 <a id ="cats" class="nav-link" data-toggle="tab" href="#all"><strong>All Pitches</strong> </a>
             </li>
@@ -30,13 +30,13 @@
                 {{ macro.show(startup_pitches) }}
             </div>
             <div  class="container tab-pane fade " id="idea"><br>
-                {{ macro.show(startup_pitches) }}
+                {{ macro.show(idea_pitches) }}
             </div>
             <div  class="container tab-pane fade " id="funding"><br>
-                {{ macro.show(startup_pitches) }}
+                {{ macro.show(funding_pitches) }}
             </div>
             <div  class="container tab-pane fade " id="event"><br>
-                {{ macro.show(startup_pitches) }}
+                {{ macro.show(event_pitches) }}
             </div>
         </div>
     </div>

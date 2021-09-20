@@ -11,10 +11,9 @@
                                 <p class="text-center"> pitch: {{pitch.pitch}}</p>
                                 <footer class="blockquote-footer text-center" > Posted by: {{pitch.user.username}}</footer>
                                 <div><span class="foot" >{{pitch.comment.count()}} Comments</span>
-                                    <span class="foot" > <a href="{{url_for('main.like',pitch_id = pitch.id)}}"><i class="fa fa-thumbs-up" style="font-size:18px;color: green"></i></a> {{pitch.upvote.count()}}</span>
+                                    <span class="foot badge badge-pill badge-success" > <a class="white-text" href="{{url_for('main.like',pitch_id = pitch.id)}}"><i class="fa fa-thumbs-up" style="font-size:18px"></i></a> {{pitch.upvote.count()}}</span>
 
-
-                                    <span class="foot"> <a href="{{url_for('main.dislike',pitch_id = pitch.id)}}"> <i class="fa fa-thumbs-down" style="color:red;"></i> {{pitch.downvotes.count()}}</a></span></div>
+                                    <span class="foot badge badge-pill badge-danger"> <a class=" white-text" href="{{url_for('main.dislike',pitch_id = pitch.id)}}"> <i class="fa fa-thumbs-down" style="font-size:18px"></i> {{pitch.downvotes.count()}}</a></span></div>
 
                                 <a href="{{url_for('main.comment',pitch_id = pitch.id)}}" class="btn btn-info btn-sm"> Comment</a>
                             </div>
