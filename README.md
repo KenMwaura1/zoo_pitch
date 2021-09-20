@@ -21,7 +21,7 @@ This is a flask application that will help create short pitches as well have peo
 
 ## Live Site
 
-[link to deployed site]()
+[link to deployed site](https://zoo-pitch.herokuapp.com/ )
 
 ## Setup Instructions / Installation
 
