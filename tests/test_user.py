@@ -30,7 +30,7 @@ class UserTest(unittest.TestCase):
     def test_user_save(self):
         self.new_user.save_user()
         username = self.new_user.username
-        query = User.query.filter_by(username=username).first()
+        query = db.session.query(User).filter_by(username=username).first()
         self.assertEqual(self.new_user.username, query.username)
         self.new_user.delete()
 
