@@ -1,7 +1,7 @@
 from flask_migrate import Migrate
 from app import create_app
 from config import config_options
-from app.commands import photo_config, db_config, login_config, mail_config,db
+from app.commands import photo_config, db_config, login_config, mail_config, db
 
 app = create_app('development')
 app.config.from_object(config_options['development'])
@@ -17,3 +17,13 @@ migrate = Migrate(app, db)
 def db():
     """command to migrate"""
 
+
+@app.cli.command("tests")
+def test():
+    """
+    function to run tests
+    :return: tests passed
+    """
+    import unittest
+    tests = unittest.TestLoader().discover('tests')
+    unittest.TextTestRunner(verbosity=2).run(tests)
